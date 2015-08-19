@@ -13,14 +13,26 @@ namespace Substitutor
         public MainWindow()
         {
             InitializeComponent();
+
             Snippets.Deserialize();
+
             ListView.ItemsSource = Snippets.List;
+            Snippets.List.ListChanged += delegate { ListView.ItemsSource = Snippets.List; };
         }
 
         private void Add_Item_Click(object sender, RoutedEventArgs e)
         {
             var add = new AddItem();
             add.ShowDialog();
+        }
+
+        private void Edit_Item_Click(object sender, RoutedEventArgs e)
+        {
+            if (ListView.SelectedIndex >= 0)
+            {
+                var editItem = new EditItem(ListView.SelectedIndex);
+                editItem.ShowDialog();
+            }
         }
 
         private void Remove_Item_Click(object sender, RoutedEventArgs e)

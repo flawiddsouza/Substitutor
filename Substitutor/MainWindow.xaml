@@ -20,6 +20,10 @@
                     Content="Add"
                     Click="Add_Item_Click"
                     Margin="0 0 10 0"/>
+            <Button x:Name="Edit_Item"
+                    Content="Edit"
+                    Click="Edit_Item_Click"
+                    Margin="0 0 10 0"/>
             <Button x:Name="Remove_Item"
                     Content="Remove"
                     Click="Remove_Item_Click"/>
@@ -30,17 +34,14 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn 
-							    Header="Command before substitutor"
-							    DisplayMemberBinding="{Binding Command}"
-                                Width="180"/>
+							    Header="   Command before substitutor   "
+							    DisplayMemberBinding="{Binding Command}"/>
                     <GridViewColumn 
-							    Header="Descriptive subtitutor title"
-							    DisplayMemberBinding="{Binding SubtitutorTitle}"
-                                Width="170"/>
+							    Header="   Descriptive substitutor title   "
+							    DisplayMemberBinding="{Binding SubstitutorTitle}"/>
                     <GridViewColumn 
-							    Header="Extra arguments after substitutor"
-							    DisplayMemberBinding="{Binding ExtraArgs}"
-                                Width="200"/>
+							    Header="   Extra arguments after substitutor   "
+							    DisplayMemberBinding="{Binding ExtraArgs}"/>
                 </GridView>
             </ListView.View>
         </ListView>

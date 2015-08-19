@@ -6,9 +6,11 @@ namespace Substitutor
     /// <summary>
     /// Interaction logic for AddItem.xaml
     /// </summary>
-    public partial class AddItem : Window
+    public partial class EditItem : Window
     {
-        public AddItem()
+        private int index;
+
+        public EditItem(int thisIndex)
         {
             InitializeComponent();
 
@@ -18,13 +20,20 @@ namespace Substitutor
             };
 
             Owner = Application.Current.MainWindow;
+            index = thisIndex;
+
+            Command.Text = Snippets.List[index].Command;
+            Substitutor_title.Text =  Snippets.List[index].SubstitutorTitle;
+            Extra_args.Text = Snippets.List[index].ExtraArgs;
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             if(!String.IsNullOrEmpty(Command.Text) && !String.IsNullOrEmpty(Substitutor_title.Text))
             {
-                Snippets.List.Add(new Snippet { Command = Command.Text, SubstitutorTitle = Substitutor_title.Text, ExtraArgs = Extra_args.Text });
+                Snippets.List[index].Command = Command.Text;
+                Snippets.List[index].SubstitutorTitle = Substitutor_title.Text;
+                Snippets.List[index].ExtraArgs = Extra_args.Text;
                 Snippets.Serialize();
                 Close();
             }

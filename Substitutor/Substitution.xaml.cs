@@ -21,7 +21,7 @@ namespace Substitutor
             Owner = Application.Current.MainWindow;
             index = thisIndex;
 
-            Title = Snippets.List[index].SubtitutorTitle;
+            Title = Snippets.List[index].SubstitutorTitle;
         }
 
         private void Run_Click(object sender, RoutedEventArgs e)
