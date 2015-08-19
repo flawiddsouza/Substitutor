@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Substitutor"
         mc:Ignorable="d"
         WindowStartupLocation="CenterOwner"
+        Style="{StaticResource MyWindowStyle}"
         Title="Substitution" Width="300" SizeToContent="Height">
     <Grid Margin="10">
         <StackPanel Orientation="Vertical">

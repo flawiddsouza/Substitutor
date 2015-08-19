@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Substitutor"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Style="{StaticResource MyWindowStyle}"
         Title="Substitutor" Height="350" SizeToContent="Width">
     <Grid>
         <Grid.RowDefinitions>
@@ -12,10 +14,12 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal"
-                    Grid.Row="0">
+                    Grid.Row="0"
+                    Margin="5">
             <Button x:Name="Add_Item"
                     Content="Add"
-                    Click="Add_Item_Click"/>
+                    Click="Add_Item_Click"
+                    Margin="0 0 10 0"/>
             <Button x:Name="Remove_Item"
                     Content="Remove"
                     Click="Remove_Item_Click"/>
@@ -23,23 +27,20 @@
         <ListView x:Name="ListView"
                   Grid.Row="1"
                   MouseDoubleClick="ListView_MouseDoubleClick">
-            <ListView.ItemContainerStyle>
-                <Style TargetType="{x:Type ListViewItem}">
-                    <Setter Property="BorderBrush" Value="LightGray" />
-                    <Setter Property="BorderThickness" Value="0,0,0,1" />
-                </Style>
-            </ListView.ItemContainerStyle>
             <ListView.View>
                 <GridView>
                     <GridViewColumn 
 							    Header="Command before substitutor"
-							    DisplayMemberBinding="{Binding Command}" />
+							    DisplayMemberBinding="{Binding Command}"
+                                Width="180"/>
                     <GridViewColumn 
 							    Header="Descriptive subtitutor title"
-							    DisplayMemberBinding="{Binding SubtitutorTitle}" />
+							    DisplayMemberBinding="{Binding SubtitutorTitle}"
+                                Width="170"/>
                     <GridViewColumn 
 							    Header="Extra arguments after substitutor"
-							    DisplayMemberBinding="{Binding ExtraArgs}" />
+							    DisplayMemberBinding="{Binding ExtraArgs}"
+                                Width="200"/>
                 </GridView>
             </ListView.View>
         </ListView>

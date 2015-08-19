@@ -12,6 +12,12 @@ namespace Substitutor
         public Substitution(int thisIndex)
         {
             InitializeComponent();
+
+            SourceInitialized += (s, e) =>
+            {
+                MaxHeight = ActualHeight;
+            };
+
             Owner = Application.Current.MainWindow;
             index = thisIndex;
 
@@ -20,13 +26,18 @@ namespace Substitutor
 
         private void Run_Click(object sender, RoutedEventArgs e)
         {
-            if(Substitute.Text.Contains(" ")) // if substitute.text has space, then add quotes around it
+            if (!Substitute.Text.StartsWith("\"") && !Substitute.Text.EndsWith("\"")) // first check if quotes exist around the string
             {
-                Substitute.Text = "\"" + Substitute.Text + "\"";
+                if (Substitute.Text.Contains(" ")) // if substitute.text has space, then add quotes around it
+                {
+                    Substitute.Text = "\"" + Substitute.Text + "\"";
+                }
             }
 
             string executableCommand = string.Join(" ", Snippets.List[index].Command, Substitute.Text, Snippets.List[index].ExtraArgs);
             System.Diagnostics.Process.Start("CMD.exe", "/k"+executableCommand);
+
+            Close();
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)

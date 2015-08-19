@@ -4,6 +4,44 @@
              xmlns:local="clr-namespace:Substitutor"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        
+        <Style  x:Key="MyWindowStyle" TargetType="Window">
+            <Setter Property="Background" Value="FloralWhite" />
+            <!--Setter Property="WindowStyle" Value="None" /-->
+        </Style>
+        
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="25" />
+            <Setter Property="Width" Value="50" />
+            <Setter Property="Background" Value="Beige" />
+            <Setter Property="BorderBrush" Value="Goldenrod" />
+        </Style>
+
+        <Style TargetType="{x:Type ListView}">
+            <Setter Property="Background" Value="FloralWhite" />
+        </Style>
+
+        <Style TargetType="{x:Type GridViewColumnHeader}">
+            <Setter Property="Background" Value="Beige" />
+            <Setter Property="FontWeight" Value="Medium" />
+        </Style>
+
+        <Style TargetType="{x:Type ListViewItem}">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Transparent" />
+                    <Setter Property="BorderBrush" Value="Transparent" />
+                    <Setter Property="Cursor" Value="Hand"/>
+                </Trigger>
+                <Trigger Property="IsSelected" Value="true" >
+                    <Setter Property="Background" Value="#0065FF" />
+                    <Setter Property="Foreground" Value="White" />
+                    <Setter Property="BorderBrush" Value="Transparent" />
+                    <Setter Property="Cursor" Value="Hand"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        
     </Application.Resources>
 </Application>

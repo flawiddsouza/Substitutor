@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Substitutor"
         mc:Ignorable="d"
         WindowStartupLocation="CenterOwner"
+        Style="{StaticResource MyWindowStyle}"
         Title="Add Snippet" SizeToContent="Height" Width="400">
     <Grid>
         <Grid.RowDefinitions>

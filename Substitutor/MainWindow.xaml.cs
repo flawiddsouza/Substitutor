@@ -25,8 +25,11 @@ namespace Substitutor
 
         private void Remove_Item_Click(object sender, RoutedEventArgs e)
         {
-            Snippets.List.RemoveAt(ListView.SelectedIndex);
-            Snippets.Serialize();
+            if (ListView.SelectedIndex >= 0)
+            {
+                Snippets.List.RemoveAt(ListView.SelectedIndex);
+                Snippets.Serialize();
+            }
         }
 
         private void ListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)

@@ -11,6 +11,12 @@ namespace Substitutor
         public AddItem()
         {
             InitializeComponent();
+
+            SourceInitialized += (s, e) =>
+            {
+                MaxHeight = ActualHeight;
+            };
+
             Owner = Application.Current.MainWindow;
         }
 
