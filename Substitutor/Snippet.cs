@@ -1,9 +1,12 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 
 namespace Substitutor
 {
+    [Serializable]
     public class Snippet : INotifyPropertyChanged 
     {
+        [field: NonSerialized]
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void OnPropertyChanged(string propertyName)
